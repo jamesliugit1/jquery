@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 20px;
+            background-color: #ccc;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <span>123</span>
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+        <div class="box">box5</div>
+        <div class="box">box6</div>
+        <span>123</span>
+    </div>
+    <div class="wrap">
+        <span>456</span>
+        <!-- <div class="box">box1</div> -->
+    </div>
+    <span>666</span>
+    <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            // $('.box:first-child').css('background','red');   
+            // $('.wrap:first-child').css('background','yellow');
+            // $('.box:last-child').css('background','green'); 
+            // $('span:first-of-type').css('color','red');
+            // $('span:last-of-type').css('color','green');
+            // $('.box:nth-child(2)').css('background','blue');
+            // $('.box:nth-last-child(3)').css('background','blue');
+            // $('.box:nth-last-of-type(3)').css('background','blue');
+            $('span:only-child').css('color','red');
+        </script>
+</body>
+</html>
