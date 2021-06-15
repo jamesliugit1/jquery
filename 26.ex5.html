@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .wrap {
+            width: 800px;
+            height: 400px;
+            overflow: hidden;
+            /* margin: 0 auto; */
+            position: relative;
+        }
+        ul.img-wrap {
+            list-style: none;
+            padding-left: 0;
+            width: 4000px;
+            height: 100%;
+            display: flex;
+            transform: translateX(-0px);
+            transition: .5s;
+        }
+        li {
+            flex-shrink: 1;
+            height: 100%;
+        }
+        li img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slider-dots {
+            list-style: none;
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .slider-dots li {
+            width: 40px;
+            height: 10px;
+            border: 2px solid#fff;
+            margin: 0 4px;
+        }
+        .left-arrow-area,
+        .right-arrow-area {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            background-color: transparent;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left-arrow-area {
+            left: 0;
+        }
+        .right-arrow-area {
+            right: 0;
+        }
+        .fas {
+            color: red;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="img-wrap">
+            <li>
+                <img src="./imgs/slide1.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/slide2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/slide3.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/slide4.jpg" alt="">
+            </li>
+            <li>
+                <img src="./imgs/slide5.jpg" alt="">
+            </li>
+        </ul>
+        <ul class="slider-dots">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="left-arrow-area">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="right-arrow-area">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            let nowPage = 0;
+            changePage();
+            $('.slider-dots li').hover(function(){
+                console.log('li index:',$(this).index()*-800 + 'px');
+                // const positionX = $(this).index()*-800 + 'px'
+                $(this).css('background','#fff').siblings().css('background','transparent');
+                // 字串相加，ES5的時候直接用運算符號，去把字串連在一起
+                // $('.img-wrap').css('transform','translateX('+ positionX+ ')');
+                // ES6改用模板字串來防止容易寫錯的困擾，字串是一個模板，中間可以塞任意變數進去
+                // 1.字串原本的單引號(或雙引號)，改成使用反引號(`)來表示字串的範圍
+                // 2.把我們想要放變數的地方，用${}放進去字串中的任一位置
+                // $('.img-wrap').css('transform',`translateX(${positionX})`);
+                nowPage = $(this).index();
+                changePage();
+            })  
+            
+            $('.left-arrow-area').click(function(){
+                console.log('left-arrow-area clicked');
+                // if (nowPage > 0) {
+                //     nowPage = nowPage - 1;
+                // } 
+
+                // 現在的js寫法
+                // 利用return的特性，直接結束function
+                // 這裡的if條件，寫的是不執行的情況
+                if (nowPage == 0) return;
+                // 以下是要執行的程式碼
+                nowPage = nowPage - 1;
+                console.log('noePage',nowPage);
+
+                changePage();
+            });
+
+            $('.right-arrow-area').click(function(){
+                console.log('right-arrow-area clicked');
+                if (nowPage == 4)  return;
+                nowPage = nowPage + 1;
+                console.log('nowPage',nowPage);
+
+                changePage();
+            });
+
+            // 模組化的概念
+            function changePage(){
+                // 改白色的指示點
+                $('.slider-dots li').eq(nowPage).css('background','#fff').siblings().css('background','transparent');
+                // 改變圖片
+                const positionX = nowPage * -800;
+                $('.img-wrap').css('transform',`translateX(${positionX}px)`);
+            }
+
+        </script>
+</body>
+</html>

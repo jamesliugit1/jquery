@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <form action="">
+                <div class="form-row">
+                    <div class="form-group">
+                        <select name="city" id="city" class="form-control">
+                            <option value="0">基隆</option>
+                            <option value="1">台北</option>
+                            <option value="2">新北</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select name="district" id="district" class="form-control">
+                            <option value="0">七堵區</option>
+                            <option value="1">中正區</option>
+                            <option value="2">暖暖區</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        let districtArray = [
+       ['七堵', '中正', '暖暖'],
+       ['中正', '大安', '信義'],
+       ['蘆洲', '三重', '新店'],
+     ];
+
+        // 1.當使用者改變city的時間點抓到了
+        $('#city').change(function(){
+            // 利用city的val()可以取得使用者選哪個option
+            // console.log('hi',$(this).val());
+            const cityVal = $(this).val();
+        // 2.我們需要取得city的區域名稱陣列
+            // console.log('array',districtArray[cityVal]);
+            const districtData = districtArray[cityVal];
+            // 3.利用迴圈，去修改第二個下拉式選單裡的option
+            // 去選取DOM有幾個，再把資料改到HTML裡
+            $('#district option').each(function(index){
+                // console.log('each',$(this).text());
+                // console.log('index',index);
+                // console.log('data',districtData[index]);
+            //再來是修改下拉式選單裡的文字
+            // 修改的話可以在text()裡面放字串
+            $(this).text(districtData[index] + '區'); 
+            })
+        })   
+    </script>
+</body>
+
+</html>

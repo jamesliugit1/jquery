@@ -13,6 +13,7 @@
         img {
             width: 100%;
             border-radius: 50%;
+            border: 3px solid transparent;
         }
     </style>
 </head>
@@ -34,8 +35,8 @@
     <script>
         $('img').click(function(){
             console.log('hi',$(this));
-            $('img:only-child').css('border','0');
-            $(this).css('border','5px solid red');
+            // $('img:only-child').css('border','0');
+            $(this).css('border','3px solid red').parent().siblings().children().css('border','3px solid transparent');
         })
     </script>
 </body>

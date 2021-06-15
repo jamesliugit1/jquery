@@ -54,10 +54,29 @@
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script>
-        $('input').click(function () {
+        // $('input').click(function () {
             // console.log('hi', $(this));
-            $(this).closest('tr').css('background','red');
-        });
+            // $(this).closest('tr').css('background','red');
+        // });
+        // console.log("$(this).prop('checked'):",$(this).prop("checked"));
+
+        // $('input').click(function (){
+
+        // if($(this).prop("checked")){
+        //     console.log('true');
+        //     $(this).closest('tr').css('background','lightblue');
+        // }
+        // else{
+        //     c$onsole.log('false');
+        //     $(this).closest('tr').css('background','transparent');
+        // }
+        // });
+
+        $('input').click(function(){
+            $('tr').css('background','transparent');
+            $('input:checked').closest('tr').css('background','lightblue');
+        })
+        
     </script>
 </body>
 
