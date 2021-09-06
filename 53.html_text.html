@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <button class="btn btn-primary" id="getText">get text</button>
+        <button class="btn btn-primary" id="getHtml">get html</button>
+        <button class="btn btn-primary" id="getHtmlWhiteText">get html white text</button>
+    </div>
+    <h1 id="sample">Hello <span>World</span></h1>
+    <h1 id="result"></h1>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        // 取值(getter) 設值(setter)
+        $('#getText').click(function(){
+            console.log('sample text:',$('#sample').text());
+            const sampleText = $('#sample').text()
+            $('#result').text(sampleText + '123');
+        });
+        $('#getHtml').click(function(){
+            const sampleHtml = $('#sample').html();
+            console.log(sampleHtml)
+            $('#result').html(sampleHtml + '123');
+        });
+        $('#getHtmlWhiteText').click(function(){
+            const sampleHtml = $('#sample').html();
+            console.log(sampleHtml)
+            $('#result').text(sampleHtml + '123');
+        })
+        //text() 取得純文字/寫成純文字
+        //html() 取得html/寫成html
+    </script>
+</body>
+</html>

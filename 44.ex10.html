@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 800px;
+            height: 380px;
+            display: flex;
+        }
+        .demo-area {
+            width: 48%;
+            height: 100%;
+            background-color: #ccc;
+            margin-right: 4%;
+        }
+        .color-selector-area {
+            width: 48%;
+            height: 100%;
+            background-color: #ccc;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .color-selector {
+            width: 80px;
+            height: 80px;
+            background-color: #faf;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        .color-selector:nth-child(1) {
+            background-color: lightseagreen;
+        }
+        .color-selector:nth-child(2) {
+            background-color: lightpink;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="demo-area">
+            
+        </div>
+        <div class="color-selector-area">
+            <div class="color-selector"></div>
+            <div class="color-selector"></div>
+        </div>
+    </div>
+    
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        // 點擊color-selector觸發一個function
+        $('.color-selector').click(function(){
+            // 先拿到我自己的背景顏色
+            // 把demo-area的背景色改掉
+            const myBgColor = $(this).css('background-color');
+            $('.demo-area').css('background-color',myBgColor);
+        });
+        for (let i = 0;i < 10;i++) {
+            $('.color-selector-area').append(`<div class="color-selector autobg"></div>`);
+        };
+        $('.autobg').each(function(index,item){
+            item.style.backgroundImage = getRGBA();
+        });
+        $('.color-selector-area').on('click','color-selector',function(){
+            
+        })
+        
+        
+    </script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+        <script>
+         function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+        
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+        
+        const elements = document.querySelectorAll('.autobg');
+        
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+        
+        // $('.autobg').each(function (index, currentElement) {
+        //     currentElement.style.backgroundImage = getRBGA();
+        // });
+        </script>
+</body>
+</html>

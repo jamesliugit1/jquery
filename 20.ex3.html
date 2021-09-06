@@ -34,10 +34,9 @@
 
     <script>
         $('img').click(function(){
-            console.log('hi',$(this));
-            // $('img:only-child').css('border','0');
             $(this).css('border','3px solid red').parent().siblings().children().css('border','3px solid transparent');
         })
+        
     </script>
 </body>
 

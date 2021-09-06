@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <style>
+        .wrap {
+            width: 800px;
+            height: 400px;
+            background-color: #ccc;
+            position: relative;
+            margin: 0 auto;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightpink;
+            position: absolute;
+            top: 0;
+            left: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+    </div>
+    <div class="py-3 text-center">
+        <div class="py-1">
+            <button id="up" class="btn btn-info">
+                <i class="fas fa-caret-up "></i>
+            </button>
+        </div>
+        <div class="py-1">
+            <button id="left" class="btn btn-info mx-3">
+                <i class="fas fa-caret-left "></i>
+            </button>
+            <button id="right" class="btn btn-info mx-3">
+                <i class="fas fa-caret-right "></i>
+            </button>
+        </div>
+        <div class="py-1">
+            <button id="down" class="btn btn-info">
+                <i class="fas fa-caret-down "></i>
+            </button>
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            let nowTop = 0;
+            let nowLeft = 300;
+            const getTop = () => {
+                nowTop = parseInt($('.box').css('top'));
+            };
+            const getLeft = () => {
+                nowLeft = parseInt($('.box').css('left'));
+            };
+            const toRight = () => {
+                getLeft();
+                if(nowLeft >= 700) return;
+                $('.box').css('left','+=20px');
+            };
+            const toLeft = () => {
+                getLeft();
+                if (nowLeft <= 0) return;
+                $('.box').css('left','-=20px');
+            };
+            const toTop = () => {
+                getTop();
+                if (nowTop <= 0) return;
+                $('.box').css('top','-=20px');
+            };
+            const toBottom = () => {
+                getTop();
+                if (nowTop >= 300) return;
+                $('.box').css('top','+=20px');
+            }
+            $(document).on('keydown',function(){
+                if(event.which==39) {
+                    toRight();
+                } 
+                if(event.which==37) {
+                    toLeft();
+                }   
+                if(event.which==38) {
+                    toTop();
+                }   
+                if(event.which==40) {
+                    toBottom();
+                }   
+            });
+            $('#up').click(toTop);
+            $('#down').click(toBottom);
+            $('#left').click(toLeft);
+            $('#right').click(toRight);
+        </script>
+</body>
+</html>

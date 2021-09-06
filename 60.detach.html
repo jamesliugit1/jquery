@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row flex-column">
+            <button id="detach">detach</button>
+            <button id="paste">paste</button>
+            <div class="hello">Hello World</div>
+            <div class="hello hello1">Hello World1</div>
+            <div class="hello2">Hello World2</div>
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        // null, undefined, 0 空值
+        let myContent = null;
+        $('#detach').click(function(){
+            myContent = $('.row div').detach();//會回傳值
+        });
+        $('#paste').click(function(){
+            console.log(myContent);
+            $('.row').append(myContent);
+        });
+    </script>
+</body>
+</html>

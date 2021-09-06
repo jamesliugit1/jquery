@@ -75,6 +75,20 @@
         // $('td:lt(-1)').css('background','red');
         // $('td:gt(-16)').css('background','red');
         // $(':header').css('color','red');
+
+        // :eq() - 選取第 n 個(從0開始計算)
+        // :even - 選取第偶數個(從0開始計算)
+        // :odd - 選取第奇數個(從0開始計算)
+        // :first - 選取第一個
+        // :last - 選取最後一個
+        // :gt() - 選取大於第 n 個的(也可以給負數)
+        // :lt() - 選取小於第 n 個的(也可以給負數)
+        // :header - 選取 h1~h6
+        $('tr:eq(3)').css('background-color','lightgreen');
+        $('td:even').css('color','#faf');
+        $('tr:first').css('background-color','blue');
+        // $('td:gt(12)').css('background-color','aqua')
+        $('td:lt(-15)').css('background-color','aqua');
     </script>
 </body>
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #afa;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+            console.log('background color',$('.box').css('background-color')); 
+            console.log('box width',$('.box').css('width'));
+            console.log('box width想要純數字的話',parseInt($('.box').css('width')));
+
+            const style = {
+            width: '200px',
+            height: '200px',
+            backgroundColor: '#faf'
+            }
+            $('.box').one('click',function(){
+                $(this).css(style);
+            });
+            // $('.box').css(style);
+        </script>
+</body>
+</html>

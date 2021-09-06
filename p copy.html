@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .wrap {
+            height: 400px;
+            width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+        ul.img-wrap {
+            width: 4000px;
+            height: 100%;
+            display: flex;
+            list-style: none;
+            padding-left: 0;
+            transform: translateX(-0px);
+            transition: .5s;
+        }
+        li {
+            height: 100%;
+        }
+        li img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        .slider-dots {
+            list-style: none;
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .slider-dots li {
+            width: 40px;
+            height: 10px;
+            border: 2px solid #fff;
+            margin: 0 4px;
+        }
+        .left-arrow-area,
+        .right-arrow-area {
+            width: 80px;
+            background-color: transparent;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            bottom: 0;
+            cursor: pointer;
+        }
+        .right-arrow-area {
+            right: 0;
+        }
+         i {
+            color: azure;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="img-wrap">
+            <li><img src="./imgs/slide1.jpg" alt=""></li>
+            <li><img src="./imgs/slide2.jpg" alt=""></li>
+            <li><img src="./imgs/slide3.jpg" alt=""></li>
+            <li><img src="./imgs/slide4.jpg" alt=""></li>
+            <li><img src="./imgs/slide5.jpg" alt=""></li>
+        </ul>
+        <ul class="slider-dots">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="left-arrow-area">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="right-arrow-area">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.0.js"></script>
+        <script>
+               let nowPage = 0;
+               const changePage = () => {
+                   const positionX = nowPage * -800 + 'px';
+                   $('.img-wrap').css('transform',`translateX(${positionX})`);
+                   $('.slider-dots li').eq(nowPage).css('background','#fff').siblings().css('background','transparent');
+               }
+               changePage();
+               $('.left-arrow-area').click(function(){
+                   if (nowPage == 0) return;
+                   nowPage = nowPage - 1;
+                   changePage();
+               })
+               $('.right-arrow-area').click(function(){
+                   if (nowPage == 4) return;
+                   nowPage++;
+                   changePage();
+               })
+               $('.slider-dots li').hover(function(){
+                   nowPage = $(this).index();
+                   $(this).css('background','#fff').siblings().css('background','transparent');
+                   changePage();
+               })
+        </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+        }
+        .banner {
+            height: calc(100vh - 110px);
+            overflow: hidden;
+            position: relative;
+        }
+        .banner ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            height: 100%;
+            width: 700%; 
+            transition: .5s;  
+        }
+        .banner ul li {
+            height: 100%;
+        }
+        .banner ul li img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .left-arrow-area,
+        .right-arrow-area {
+            width: 80px;
+            background-color: transparent;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            bottom: 0;
+            cursor: pointer;
+        }
+        .right-arrow-area {
+            right: 0;
+        }
+         i {
+            color: azure;
+            font-size: 2em;
+        }
+        nav {
+            display: flex;
+            background-color: lightblue;
+            padding: 0 20px;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        nav p {
+            font-family:'Baloo Tammudu 2', cursive;
+            font-size: 3rem;
+            padding-top: 20px;
+        }
+        .links {
+            border-left: 2px solid rgb(124, 65, 65);
+            padding: 10px 0 10px 20px;
+            margin-left: 30px;
+        }
+        .links a {
+            font-family: 'Pangolin', cursive; ;
+            font-size: 1.5em;
+            color: rgb(52, 83, 52);
+            margin: 10px;
+        }
+        .icons {
+            margin-left: auto;
+        }
+        .icons i {
+            font-size: 2rem;
+            margin: 10px;
+        }
+        @media (max-width:1150px) {
+            .icon {
+                display: none;
+            }
+        }
+        .intro {
+            margin-top: 100px;
+        }
+        .intro.title {
+            font-size: 5rem;
+        }
+        .intro.title::after {
+            content: "";
+            display: block;
+            width: 300px;
+            height: 20px;
+            background-color: #afa;
+            margin-top: -30px;
+        }
+        .intro-wrap {
+            position: relative;
+            margin-top: 200px;
+            transform: translateY(200px);
+            opacity: 0;
+            transition: 1s;
+        }
+        .intro-wrap.show {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        .intro-wrap p {
+            width: 40%;
+            background-color: rgba(27, 199, 33,0.6);
+            padding: 30px;
+            border: 2px green dashed;
+            position: absolute;
+            right: -50px;
+            top: -100px;
+        }
+        .intro-wrap:nth-child(2n-1) p {
+            left: -50px;
+        }
+        .intro-wrap img {
+            width: 80%;
+            height: auto;
+            object-fit: cover;
+        }
+        .intro-wrap:nth-child(2n-1) img {
+            margin-left: 200px;
+        }
+        @media (max-width:1150px) {
+            .intro-wrap {
+                margin-top: 0;
+                padding: 10px;
+            }
+            .intro-wrap p {
+                position: static;
+                width: 100%;
+                padding: 30px 0;
+                background-color: transparent;
+                border: 2px transparent dashed;
+            }
+            .intro.intro-wrap img {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="banner">
+        <ul>
+            <li><img src="./ex11_eg/5.jpg" alt=""></li>
+            <li><img src="./ex11_eg/1.jpg" alt=""></li>
+            <li><img src="./ex11_eg/2.jpg" alt=""></li>
+            <li><img src="./ex11_eg/3.jpg" alt=""></li>
+            <li><img src="./ex11_eg/4.jpg" alt=""></li>
+            <li><img src="./ex11_eg/5.jpg" alt=""></li>
+            <li><img src="./ex11_eg/1.jpg" alt=""></li>
+        </ul>
+        <div class="left-arrow-area">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="right-arrow-area">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </section>
+    <nav class="d-flex">
+        <p>Travel agency</p>
+        <div class="links">
+            <a href="">About</a>
+            <a href="">Explore</a>
+            <a href="">Recommend</a>
+            <a href="">Backpackers</a>
+            <a href="">Photos</a>
+        </div>
+        <div class="icons">
+            <i class="fas fa-user"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+    </nav>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="intro">
+                    <h2 class="title">Kyoto</h2>
+                    <div class="intro-wrap">
+                        <p>京都是位於日本近畿地方的都市，約等同於今日京都市的市中心區域。其歷史起於8世紀建立的「平安京」，於794年起被定為日本首都，此後發展成為日本中古及近代重要的政治與文化中心，至1869年遷都東京為止。歷經千年的發展，京都與東京並列為現今日本最具代表性的文化櫥窗。</p>
+                        <img src="./ex11_eg/intro1.jpg" alt="">
+                    </div>
+                    <div class="intro-wrap">
+                        <p>京都是位於日本近畿地方的都市，約等同於今日京都市的市中心區域。其歷史起於8世紀建立的「平安京」，於794年起被定為日本首都，此後發展成為日本中古及近代重要的政治與文化中心，至1869年遷都東京為止。歷經千年的發展，京都與東京並列為現今日本最具代表性的文化櫥窗。</p>
+                        <img src="./ex11_eg/intro2.jpg" alt="">
+                    </div>
+                    <div class="intro-wrap">
+                        <p>京都是位於日本近畿地方的都市，約等同於今日京都市的市中心區域。其歷史起於8世紀建立的「平安京」，於794年起被定為日本首都，此後發展成為日本中古及近代重要的政治與文化中心，至1869年遷都東京為止。歷經千年的發展，京都與東京並列為現今日本最具代表性的文化櫥窗。</p>
+                        <img src="./ex11_eg/intro3.jpg" alt="">
+                    </div>
+                    <div class="intro-wrap">
+                        <p>京都是位於日本近畿地方的都市，約等同於今日京都市的市中心區域。其歷史起於8世紀建立的「平安京」，於794年起被定為日本首都，此後發展成為日本中古及近代重要的政治與文化中心，至1869年遷都東京為止。歷經千年的發展，京都與東京並列為現今日本最具代表性的文化櫥窗。</p>
+                        <img src="./ex11_eg/intro4.jpg" alt="">
+                    </div>
+                    <div class="intro-wrap">
+                        <p>京都是位於日本近畿地方的都市，約等同於今日京都市的市中心區域。其歷史起於8世紀建立的「平安京」，於794年起被定為日本首都，此後發展成為日本中古及近代重要的政治與文化中心，至1869年遷都東京為止。歷經千年的發展，京都與東京並列為現今日本最具代表性的文化櫥窗。</p>
+                        <img src="./ex11_eg/intro5.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        let nowPage = 0;
+               const changePage = () => {
+                   const bannerWidth = $('.banner').width();
+                   const positionX = nowPage * -1 * bannerWidth;
+                   $('.banner ul').css('transition','.5s').css('transform',`translateX(${positionX}px)`);
+               }
+
+               function changePageQuietly() {
+                    const bannerWidth = $('.banner').width();
+                   const positionX = nowPage * -1 * bannerWidth;
+                   $('.banner ul').css('transition','none').css('transform',`translateX(${positionX}px)`);
+               }
+
+               let myInterval;
+
+               function startMyInterval(){
+                    myInterval = setInterval(function(){
+                    nowPage++;
+                    changePage();
+                },2000);
+               }
+               $('.banner').mouseenter(function(){
+                   clearInterval(myInterval);
+               });
+               $('.banner').mouseleave(function(){
+                   startMyInterval();
+               })
+               
+               
+               changePage();
+
+               $('.left-arrow-area').click(function(){
+                //    if (nowPage == 0) return;
+                   nowPage = nowPage - 1;
+                   changePage();
+               })
+               $('.right-arrow-area').click(function(){
+                //    if (nowPage == 4) return;
+                   nowPage = nowPage + 1;
+                   changePage();
+               })
+               $('.banner ul').on('transitionend',function(){
+                    console.log('trasitionend');
+                    if (nowPage >= 6){
+                        nowPage = 1;
+                        changePageQuietly();
+                    }
+                    if (nowPage <= 0) {
+                        nowPage = 5;
+                        changePageQuietly();
+                    }
+               }) 
+               
+               $(window).resize(function(){
+                   changePageQuietly();
+               })
+               $(window).scroll(function(){
+                   $('.intro-wrap').each(function(index,item){
+                       console.log('item:',$(item).offset().top);
+                       if($(window).scrollTop()+$(window).height() >= $(item).offset().top) {
+                           $(item).addClass('show');
+                       }
+                       else {
+                           $(item).removeClass('show');
+                       }
+                   })
+               })  
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        margin: 0;
+        height: 600vh;
+    }
+    /* .header {
+        height: 1600px;
+        background-color:antiquewhite;
+    } */
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: #afa;
+        transition: 2s;
+        margin-top: 1200px;
+    }    
+    </style>
+</head>
+<body>
+    <div class="header">hi</div>
+    <div class="box"></div>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        console.log('box offset:',$('.box').offset());
+        $(window).scroll(function(){
+            // console.log($(window).scrollTop);
+            // console.log($(window).height() + 100);
+            if (($(window).scrollTop()) > $('.box').offset().top - $(window).height() + 100) {
+                $('.box').css('background-color','red');
+            }
+        });
+    </script>
+</body>
+</html>

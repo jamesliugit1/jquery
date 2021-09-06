@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const myArray = [1, 2, 3];
+        // const宣告的變數不能重新賦值
+        console.log('myArray1',myArray);
+        myArray.push(4);
+        const myPop = myArray.pop();
+        console.log('myPop',myPop);
+        const myPop2 = myArray.pop();
+        console.log('myPop2',myPop2);
+        console.log('myArray2',myArray);
+
+
+        // 從前面加入一筆資料，陣列長度+1，而且資料的位置會遞移
+        myArray.unshift('hi');
+        console.log('myArray2',myArray);
+
+        // 從前面拿第一個值出來，陣列長度-1
+        const myShift = myArray.shift();
+        console.log('myShift:',myShift);
+        console.log('myArray after:',myArray);
+    </script>
+</body>
+</html>

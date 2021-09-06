@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .small {
+            font-size: .8rem;
+        }
+        .medium {
+            font-size: 1rem;
+        }
+        .large {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="btn-group">
+                <button class="btn btn-info" id="small">S</button>
+                <button class="btn btn-info active" id="medium">M</button>
+                <button class="btn btn-info" id="large">L</button>
+            </div>
+        </div>
+    </div>
+
+    <h2>jquery</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, obcaecati similique iure asperiores aspernatur laudantium ipsam delectus ab? Possimus nulla repudiandae odio! Quibusdam explicabo laboriosam, similique nulla amet quam sapiente?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, obcaecati similique iure asperiores aspernatur laudantium ipsam delectus ab? Possimus nulla repudiandae odio! Quibusdam explicabo laboriosam, similique nulla amet quam sapiente?</p>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        // $('#small').click(function(){
+        //     $('p').addClass('small').removeClass('medium').removeClass('large');
+
+        // });
+        // $('#medium').click(function(){
+        //     $('p').addClass('medium').removeClass('small').removeClass('large');
+
+        // });
+        // $('#large').click(function(){
+        //     $('p').addClass('large').removeClass('medium').removeClass('small');
+
+        // });
+
+        $('.btn').click(function(){
+            console.log('this:',$(this).is(":contains('S')"));
+            if ($(this).is(":contains('S')")) {
+                $('p').addClass('small').removeClass('medium').removeClass('large');
+            };
+            if ($(this).is(":contains('M')")) {
+                $('p').addClass('medium').removeClass('small').removeClass('large');
+            };
+            if ($(this).is(":contains('L')")) {
+                $('p').addClass('large').removeClass('medium').removeClass('small');
+            };
+        });
+    </script>
+</body>
+</html>
